@@ -1,0 +1,53 @@
+[project]
+name = "claude-code-team-workflow"
+version = "0.1.0"
+description = "A team-ready Claude Code setup on a real FastAPI service: CLAUDE.md hierarchy, path-scoped rules, slash commands, a forked skill, shared and personal MCP servers, and plan-mode playbooks."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "httpx>=0.27",
+    "mcp>=2.2",
+    "pydantic>=2.9",
+    "pyyaml>=6.0",
+    "uvicorn>=0.30",
+]
+
+[project.scripts]
+taskboard-api = "taskboard.main:run"
+team-tracker-mcp = "team_tracker.server:main"
+check-claude-config = "claude_config_check.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.15,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = ["taskboard", "team_tracker", "claude_config_check"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not live'"
+markers = [
+    "live: runs the real Claude Code CLI headlessly (uses your Claude account); run with `pytest -m live`",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Hooks run on each developer's system python3 (3.9 on stock macOS), so no 3.11+ idioms.
+".claude/hooks/*.py" = ["UP"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]

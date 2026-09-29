@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+*.egg-info
+
+# Environments and secrets
+.venv/
+.env
+.env.local
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+
+# Claude Code: personal files stay on your machine
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/logs/

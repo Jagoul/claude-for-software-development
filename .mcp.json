@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "team-tracker": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "--quiet", "--directory", "${CLAUDE_PROJECT_DIR:-.}", "team-tracker-mcp"],
+      "env": {
+        "TRACKER_TOKEN": "${TRACKER_TOKEN}",
+        "TRACKER_PROJECT": "${TRACKER_PROJECT:-TB}"
+      }
+    }
+  }
+}

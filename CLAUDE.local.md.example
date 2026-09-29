@@ -1,0 +1,11 @@
+# Personal instructions for this project (template)
+
+Copy to `CLAUDE.local.md`. That file is git-ignored: it applies to your sessions only and loads
+after the team's `CLAUDE.md`, so it can add to it. Keep team rules in `CLAUDE.md`, not here.
+
+## Examples
+
+- Explain non-obvious changes briefly; I'm new to FastAPI.
+- My local API runs on port 8100: use `TASKBOARD_PORT=8100 uv run taskboard-api`.
+- In my checkout this folder is a member of a larger uv workspace. Never run a bare `uv sync`
+  here; run `uv sync --all-packages` from the workspace root instead.
