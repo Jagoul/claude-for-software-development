@@ -1,4 +1,4 @@
-# Claude Code for Team Development Workflow
+# Claude Code for Software Development
 
 ![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1-D97757)
